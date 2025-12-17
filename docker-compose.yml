@@ -49,7 +49,7 @@ services:
       PHOTOPRISM_ADMIN_PASSWORD: "Test314299" # initial admin password (8-72 characters)
       PHOTOPRISM_AUTH_MODE: "password" # authentication mode (public, password)
       PHOTOPRISM_DISABLE_TLS: "false" # disables HTTPS/TLS even if the site URL starts with https:// and a certificate is available
-      PHOTOPRISM_DEFAULT_TLS: "true" # defaults to a self-signed HTTPS/TLS certificate if no other certificate is available
+      PHOTOPRISM_DEFAULT_TLS: "false" # defaults to a self-signed HTTPS/TLS certificate if no other certificate is available
       PHOTOPRISM_DEFAULT_LOCALE: "en" # default user interface language, e.g. "en" or "de"
       PHOTOPRISM_PLACES_LOCALE: "local" # location details language, e.g. "local", "en", or "de"
       PHOTOPRISM_SITE_URL: "https://photos.nameocean.org" # server URL in the format "http(s)://domain.name(:port)/(path)"
