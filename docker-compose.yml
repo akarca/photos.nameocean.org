@@ -113,9 +113,9 @@ services:
     deploy:
       resources:
         limits:
-          memory: 8G
+          memory: 8gb
         reservations:
-          memory: 2G
+          memory: 2gb
 
   ## MariaDB Database Server (recommended)
   ## see https://docs.photoprism.app/getting-started/faq/#should-i-use-sqlite-mariadb-or-mysql
