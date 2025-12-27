@@ -11,8 +11,8 @@ services:
       - "2342:2342"
     working_dir: "/photoprism"
     volumes:
-      - "~/Pictures:/photoprism/originals"
-      - "./storage:/photoprism/storage" # *Writable* storage folder for cache, database, and sidecar files (DO NOT REMOVE)
+      - "/root/Pictures:/photoprism/originals"
+      - "/root/storage:/photoprism/storage" # *Writable* storage folder for cache, database, and sidecar files (DO NOT REMOVE)
     deploy:
       resources:
         limits:
@@ -94,7 +94,7 @@ services:
     command: --innodb-buffer-pool-size=512M --transaction-isolation=READ-COMMITTED --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --max-connections=512 --innodb-rollback-on-timeout=OFF --innodb-lock-wait-timeout=120
     ## Never store database files on an unreliable device such as a USB flash drive, an SD card, or a shared network folder:
     volumes:
-      - "./database:/var/lib/mysql" # DO NOT REMOVE
+      - "/root/database:/var/lib/mysql" # DO NOT REMOVE
     environment:
       MARIADB_AUTO_UPGRADE: "1"
       MARIADB_INITDB_SKIP_TZINFO: "1"
@@ -167,7 +167,7 @@ services:
       HF_HUB_DISABLE_TELEMETRY: "1" # disable Hugging Face telemetry
       # HUGGING_FACE_HUB_TOKEN: ""      # see https://huggingface.co/docs/hub/en/security-tokens
     volumes:
-      - "./open-webui:/app/backend/data"
+      - "/root/open-webui:/app/backend/data"
 
   ## Watchtower upgrades services automatically (optional)
   ## see https://docs.photoprism.app/getting-started/updates/#watchtower
@@ -183,4 +183,4 @@ services:
       WATCHTOWER_POLL_INTERVAL: 7200 # checks for updates every 2 hours
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
-      - "~/.docker/config.json:/config.json" # optional, for authentication if you have a Docker Hub account
+      - "/root/.docker/config.json:/config.json" # optional, for authentication if you have a Docker Hub account
