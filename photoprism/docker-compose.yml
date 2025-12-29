@@ -48,7 +48,7 @@ services:
       PHOTOPRISM_BACKUP_ALBUMS: "true" # creates YAML files to back up album metadata
       PHOTOPRISM_BACKUP_DATABASE: "true" # creates regular backups based on the configured schedule
       PHOTOPRISM_BACKUP_SCHEDULE: "daily" # backup SCHEDULE in cron format (e.g. "0 12 * * *" for daily at noon) or at a random time (daily, weekly)
-      PHOTOPRISM_INDEX_SCHEDULE: "" # indexing SCHEDULE in cron format (e.g. "@every 3h" for every 3 hours; "" to disable)
+      PHOTOPRISM_INDEX_SCHEDULE: "0 8 * * *" # indexing SCHEDULE in cron format (e.g. "@every 3h" for every 3 hours; "" to disable)
       PHOTOPRISM_AUTO_INDEX: 300 # delay before automatically indexing files in SECONDS when uploading via WebDAV (-1 to disable)
       PHOTOPRISM_AUTO_IMPORT: -1 # delay before automatically importing files in SECONDS when uploading via WebDAV (-1 to disable)
       PHOTOPRISM_DETECT_NSFW: "false" # automatically flags photos as private that MAY be offensive (requires TensorFlow)
@@ -137,7 +137,7 @@ services:
       # NVIDIA_VISIBLE_DEVICES: "all"
       # NVIDIA_DRIVER_CAPABILITIES: "compute,utility"
     volumes:
-      - "./ollama:/root/.ollama"
+      - "/root/ollama:/root/.ollama"
     ## NVIDIA GPU Hardware Acceleration (see https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html):
     # deploy:
     #  resources:
