@@ -1,6 +1,7 @@
 services:
   photoprism:
     image: photoprism/photoprism:latest
+    restart: unless-stopped
     stop_grace_period: 15s
     depends_on:
       - mariadb
